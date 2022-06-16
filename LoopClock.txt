@@ -1,0 +1,8 @@
+Start M
+	a = 0 ; c = 6 ; b = 3 ;
+       	L c
+	IF a == b
+	a = 0 $ :
+	a = a + 1 : ;
+	P ;
+End M

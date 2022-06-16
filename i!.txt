@@ -1,0 +1,9 @@
+Start M	
+	i = 5 ; z = 0 ; b = 1 ;
+       	L i
+	IF a == z 
+	a = 1 $ :
+	a = a + 1 : b = a * b : ;
+	P ;
+End M
+

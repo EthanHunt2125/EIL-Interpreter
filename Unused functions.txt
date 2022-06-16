@@ -1,0 +1,150 @@
+OPCODE get_commands3(stack<stack < int>> S)
+{
+	OPCODE code;
+    int *x;
+    int *y;
+    int* z;
+    int* t;
+    int l=0;
+    int yl=0;
+    int xl=0;
+    int tl=0;
+	while(!S.empty()){
+        xl= get_stack_size(S.top());
+        x=get_arr(S.top(),xl);
+        S.pop();
+        yl= get_stack_size(S.top());
+        y=get_arr(S.top(),yl);
+        S.pop();
+        tl=xl+yl;
+        t=append_arr(x,y,xl,yl);
+        z=append_arr(z,t,l,tl);
+        l=tl+l;
+    }
+code.arr=z;
+code.l=l;
+
+	return code;
+
+}
+///////////////////////////////////////////////////////////////
+int* append_arr(int* arr, int* arr2 , int l , int l2){
+    int* arr3 =  new int[l+l2];
+    int c =0;
+    for(int i=0; i<l+l2 ; i++){
+        if(i <l){
+         arr3[i]=arr[i];   
+            
+            
+        }
+        else{
+            
+         arr3[i]=arr2[c];     
+          c++;  
+        }
+    }
+    
+    
+    
+    
+    return arr3;
+}
+/////////////////////////////////////////////////////////////
+
+OPCODE get_Xcommand_arr(int *oparr, int l, int* opparr2, int l2)
+{
+	OPCODE code;
+    int* arr;
+    bool start = false;
+	bool end = false;
+    int s = 0;
+    int e = 0;
+	int c = 0;
+
+	
+		for (int i = 0; i < l; i++)
+		{
+        if (oparr[i] == opparr2[i])
+			{
+                     s=i;
+                    
+                }
+
+			}
+            
+            for (int i = s; i < l; i++){
+		
+            arr[c]=oparr[i];
+                    
+                    
+                }
+
+			code.arr=arr;
+            code.l=(l-s)+1;
+        
+			
+
+	return code;
+
+}
+
+/////////////////////////////////////////////////////////
+
+OPCODE get_Ecommand_arr(int *oparr, int l)
+{
+	OPCODE code;
+    int* arr;
+    bool start = false;
+	bool end = false;
+    int s = 0;
+    int e = 0;
+	int c = 0;
+
+	
+		for (int i = 0; i < l; i++)
+		{
+			if (oparr[i] == 49)
+			{
+				if(start && !end){
+                    
+                    end=false;
+                    e=i;
+                    
+                }
+                 if(!start){
+                    start=true; 
+                     s=i;
+                 }   
+                    
+                    
+                }
+
+			}
+            
+          if(start && end){
+        for (int i = s+1; i < e; i++){
+        arr[c]=oparr[i];
+            
+            c++;
+			}
+          code.arr=arr;  
+        code.l=(e-s)+1;
+              
+          }  
+            else{
+                 code.arr=oparr;  
+        code.l=l;
+                
+                
+                
+                
+            }
+            
+            
+            
+            
+			
+
+	return code;
+
+}

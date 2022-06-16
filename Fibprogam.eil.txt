@@ -1,0 +1,16 @@
+// Ethan Hunt EIL v0.5
+// Test Program 
+// date 3/7/2022
+
+Start M
+	a = 1 ;
+	b = 0 ;
+        c = 0 ;
+	i = 10 ;
+       	L i
+	c = a + b :
+	b = a :
+	a = c :
+	;
+	P ;
+End M

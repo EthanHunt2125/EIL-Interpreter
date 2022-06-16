@@ -1,0 +1,14 @@
+Program             ->  [Program_Head] <Program_Body> [Punction_0]  
+Program_Body        ->  <Statement> [Punction_1] || <Statement> [Punction_1] <Program_Body>
+Statement           ->  [Head_Type_Assign] <Expression>  || [Head_type_Print] <Empty> ||          
+                        [Head_type_Loop] <Loop_Body> ||  [Head_type_IF]  <Statement_IF>                                                 
+Expression          ->  <Value> || <Value>  <Operator>  <Expression>
+Loop_Body           ->  <Statement>  [Punction_2] ||  <Statement>  [Punction_2]  <Loop_Body>
+Empty               ->  NULL
+IF_Body             ->  <Statement> [Punction_3] || <Statement> [Punction_3] <IF_Body>
+Head_Type_Assign    ->  [Variable_ID] <=>
+Head_Type_Print     ->  [Command_ID_1]
+Head_Type_Loop      ->  [Command_ID_2] <Variable_ID> <=>  
+
+
+
