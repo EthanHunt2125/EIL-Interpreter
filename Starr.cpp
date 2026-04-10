@@ -37,17 +37,15 @@ int * Starr::get_arr(stack < int > x, int sl) {
   return c;
 }
 
-stack < int > Starr::flipstack(stack < int > x) {
+stack < int > Starr::flipstack(const stack < int > &x) {
+  stack < int > source = x;
   stack < int > y;
-  stack < int > s;
   int i;
-  while (!x.empty()) {
-    i = x.top();
+  while (!source.empty()) {
+    i = source.top();
     y.push(i);
-    x.pop();
+    source.pop();
   }
-
-  s = y;
 
   return y;
 
