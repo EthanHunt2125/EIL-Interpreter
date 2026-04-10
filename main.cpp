@@ -101,31 +101,34 @@ void showstack(stack < stack < int >> x) {
 
 // Stack functions
 
-int get_stack_size(stack < Chunk > x) {
+int get_stack_size(const stack < Chunk > &x) {
+  stack < Chunk > temp = x;
   int i = 0;
-  while (!x.empty()) {
+  while (!temp.empty()) {
     i++;
-    x.pop();
+    temp.pop();
   }
 
   return i;
 }
 
-int get_stack_size(stack < int > x) {
+int get_stack_size(const stack < int > &x) {
+  stack < int > temp = x;
   int i = 0;
-  while (!x.empty()) {
+  while (!temp.empty()) {
     i++;
-    x.pop();
+    temp.pop();
   }
 
   return i;
 }
 
-int get_stack_size(stack < Exp1 > x) {
+int get_stack_size(const stack < Exp1 > &x) {
+  stack < Exp1 > temp = x;
   int i = 0;
-  while (!x.empty()) {
+  while (!temp.empty()) {
     i++;
-    x.pop();
+    temp.pop();
   }
 
   return i;
@@ -155,101 +158,97 @@ Exp1 * get_arr(stack < Exp1 > x, int sl) {
   return c;
 }
 
-stack < char * > appendstack(stack < char * > x, stack < char * > y) {
-  while (!x.empty()) {
-    y.push(x.top());
-    x.pop();
+stack < char * > appendstack(const stack < char * > &x, const stack < char * > &y) {
+  stack < char * > source = x;
+  stack < char * > result = y;
+  while (!source.empty()) {
+    result.push(source.top());
+    source.pop();
   }
 
-  return y;
+  return result;
 
 }
 
-stack < stack < int >> appendstack(stack < stack < int >> x, stack < stack < int >> y) {
-  while (!x.empty()) {
-    y.push(x.top());
-    x.pop();
+stack < stack < int >> appendstack(const stack < stack < int >> &x, const stack < stack < int >> &y) {
+  stack < stack < int >> source = x;
+  stack < stack < int >> result = y;
+  while (!source.empty()) {
+    result.push(source.top());
+    source.pop();
   }
 
-  return y;
+  return result;
 
 }
 
-stack < Chunk > flipstack(stack < Chunk > x) {
+stack < Chunk > flipstack(const stack < Chunk > &x) {
+  stack < Chunk > source = x;
   stack < Chunk > y;
-  stack < Chunk > s;
   Chunk i;
-  while (!x.empty()) {
-    i = x.top();
+  while (!source.empty()) {
+    i = source.top();
     y.push(i);
-    x.pop();
+    source.pop();
   }
-
-  s = y;
 
   return y;
 
 }
 
-stack < int > flipstack(stack < int > x) {
+stack < int > flipstack(const stack < int > &x) {
+  stack < int > source = x;
   stack < int > y;
-  stack < int > s;
   int i;
-  while (!x.empty()) {
-    i = x.top();
+  while (!source.empty()) {
+    i = source.top();
     y.push(i);
-    x.pop();
+    source.pop();
   }
-
-  s = y;
 
   return y;
 
 }
 
-stack < stack < stack < int >>> flipstack(stack < stack < stack < int >>> x) {
+stack < stack < stack < int >>> flipstack(const stack < stack < stack < int >>> &x) {
+  stack < stack < stack < int >>> source = x;
   stack < stack < stack < int >>> y;
-  stack < stack < stack < int >>> s;
   stack < stack < int >> i;
-  while (!x.empty()) {
-    i = x.top();
+  while (!source.empty()) {
+    i = source.top();
     y.push(i);
-    x.pop();
+    source.pop();
   }
-
-  s = y;
 
   return y;
 
 }
 
-stack < stack < int >> flipstack(stack < stack < int >> x) {
+stack < stack < int >> flipstack(const stack < stack < int >> &x) {
+  stack < stack < int >> source = x;
   stack < stack < int >> y;
-  stack < stack < int >> s;
   stack < int > i;
-  while (!x.empty()) {
-    i = x.top();
+  while (!source.empty()) {
+    i = source.top();
     y.push(i);
-    x.pop();
+    source.pop();
   }
-
-  s = y;
 
   return y;
 
 }
 
-stack < string > flipstack(stack < string > x) {
+stack < string > flipstack(const stack < string > &x) {
+  stack < string > source = x;
   stack < string > y;
-  stack < string > s;
   string i;
-  while (!x.empty()) {
-    i = x.top();
+  while (!source.empty()) {
+    i = source.top();
     y.push(i);
-    x.pop();
+    source.pop();
   }
 
-  s = y;
+  stack < string > s = y;
 
   while (!s.empty()) {
     cout << '\t' << s.top();
@@ -262,17 +261,15 @@ stack < string > flipstack(stack < string > x) {
 
 }
 
-stack < Exp1 > flipstack(stack < Exp1 > x) {
+stack < Exp1 > flipstack(const stack < Exp1 > &x) {
+  stack < Exp1 > source = x;
   stack < Exp1 > y;
-  stack < Exp1 > s;
   Exp1 i;
-  while (!x.empty()) {
-    i = x.top();
+  while (!source.empty()) {
+    i = source.top();
     y.push(i);
-    x.pop();
+    source.pop();
   }
-
-  s = y;
 
   return y;
 
