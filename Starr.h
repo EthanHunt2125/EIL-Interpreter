@@ -45,7 +45,7 @@ public:
     Starr();
     ~Starr();
     int*  get_arr(stack<int> x, int sl);
-    stack<int> flipstack(stack<int> x);
+    stack<int> flipstack(const stack<int> &x);
     Exp1 get_Expr1(int *arr, int l, int *reg);
      void maintain(); 
      
